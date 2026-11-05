@@ -1,9 +1,18 @@
+
+import polars as pl
 import seaborn as sns
+import matplotlib.axes
 
 
-def plot_gdp(df):
+def plot_gdp(df: pl.DataFrame) -> matplotlib.axes.Axes:
     """
-    This function takes in a dataframe and plots the GDP of the countries in the dataframe.
+    This function takes in a Polars DataFrame
+    and plots the GDP of the countries in the dataframe.
     """
 
-    return sns.lineplot(data=df, x="Year", y="GDP", hue="Country Name")
+    return sns.lineplot(
+        data=df,
+        x="Year",
+        y="GDP",
+        hue="Country Name"
+    )
